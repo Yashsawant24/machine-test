@@ -1,0 +1,50 @@
+<h2>Product Master</h2>
+
+<input
+  [(ngModel)]="productName"
+  placeholder="Product Name"
+/>
+
+<select [(ngModel)]="categoryId">
+  <option [ngValue]="null">-- Select Category --</option>
+  <option *ngFor="let c of categories" [ngValue]="c.id">
+    {{ c.name }}
+  </option>
+</select>
+
+<button (click)="addProduct()">Add Product</button>
+
+<hr />
+
+<table
+  border="1"
+  cellpadding="5"
+  *ngIf="products.length > 0"
+>
+  <tr>
+    <th>ProductId</th>
+    <th>ProductName</th>
+    <th>CategoryId</th>
+    <th>CategoryName</th>
+  </tr>
+
+ <tr *ngFor="let p of products">
+  <td>{{ p.id }}</td>
+  <td>{{ p.name }}</td>
+  <td>{{ p.Category?.id || '-' }}</td>
+  <td>{{ p.Category?.name || '-' }}</td>
+</tr>
+
+
+</table>
+
+<p *ngIf="products.length === 0">
+  No products available
+</p>
+
+<br />
+
+<div *ngIf="products.length > 0">
+  <button (click)="prevPage()">Previous</button>
+  <button (click)="nextPage()">Next</button>
+</div>

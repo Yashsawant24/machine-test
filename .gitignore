@@ -1,0 +1,17 @@
+# Ignore all node modules
+node_modules/
+
+# Angular build
+dist/
+.angular/
+
+# Environment files
+.env
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
